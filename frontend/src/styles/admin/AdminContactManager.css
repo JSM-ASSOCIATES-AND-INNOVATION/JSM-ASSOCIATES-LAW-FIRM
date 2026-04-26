@@ -1,0 +1,196 @@
+/* =========================================
+   ADMIN CONTACT INBOX (JSM THEME)
+   ========================================= */
+
+.admin-contact-root {
+    padding: 150px 20px 100px 20px;
+    background-color: #0a0a0a;
+    min-height: 100vh;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-contact-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* --- HEADER --- */
+.admin-contact-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.admin-contact-back-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.admin-contact-back-btn:hover {
+    border-color: #FFBF00;
+    color: #FFBF00;
+    background: rgba(255, 191, 0, 0.05);
+}
+
+.admin-contact-title {
+    color: #FFBF00;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- EMPTY / LOADING STATES --- */
+.admin-contact-status {
+    color: #888;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 50px;
+}
+
+.admin-contact-empty {
+    text-align: center;
+    padding: 80px 20px;
+    background: #111;
+    border-radius: 12px;
+    border: 1px dashed #333;
+}
+
+.admin-contact-empty h3 {
+    color: #888;
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+}
+
+.admin-contact-empty p {
+    color: #555;
+    margin: 0;
+}
+
+/* --- MESSAGE LIST & CARDS --- */
+.admin-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.admin-contact-card {
+    background: #111;
+    padding: 35px;
+    border-radius: 12px;
+    border: 1px solid #222;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.admin-contact-card:hover {
+    border-color: #333;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* --- DELETE BUTTON --- */
+.admin-contact-delete-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: rgba(255, 68, 68, 0.1);
+    color: #ff4444;
+    border: 1px solid rgba(255, 68, 68, 0.2);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.admin-contact-delete-btn:hover {
+    background: #ff4444;
+    color: #fff;
+    border-color: #ff4444;
+}
+
+/* --- META DATA (Name, Email, Phone, Date) --- */
+.admin-contact-meta {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+    color: #888;
+    font-size: 0.95rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #222;
+    padding-bottom: 25px;
+    padding-right: 100px;
+}
+
+.admin-contact-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-contact-meta-item a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.admin-contact-meta-item a:hover {
+    color: #FFBF00;
+    text-decoration: underline;
+}
+
+.admin-contact-name {
+    color: #FFBF00;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- MESSAGE BODY --- */
+.admin-contact-body {
+    color: #e0e0e0;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    font-size: 1.1rem;
+    font-family: 'Garamond', serif;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .admin-contact-card {
+        padding: 25px;
+    }
+
+    .admin-contact-meta {
+        gap: 15px;
+        flex-direction: column;
+        padding-right: 0;
+    }
+
+    .admin-contact-delete-btn {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        justify-content: center;
+        margin-top: 20px;
+    }
+}

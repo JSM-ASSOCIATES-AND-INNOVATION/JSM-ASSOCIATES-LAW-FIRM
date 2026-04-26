@@ -1,0 +1,539 @@
+/* =========================================
+   1. GLOBAL & FONTS (Quill Overrides)
+   ========================================= */
+.ql-font-garamond {
+    font-family: 'Garamond', serif !important;
+}
+
+.ql-font-times-new-roman {
+    font-family: 'Times New Roman', serif !important;
+}
+
+.ql-font-arial {
+    font-family: 'Arial', sans-serif !important;
+}
+
+.ql-font-courier-new {
+    font-family: 'Courier New', monospace !important;
+}
+
+/* Sizes */
+.ql-size-10 {
+    font-size: 10px;
+}
+
+.ql-size-12 {
+    font-size: 12px;
+}
+
+.ql-size-14 {
+    font-size: 14px;
+}
+
+.ql-size-16 {
+    font-size: 16px;
+}
+
+.ql-size-18 {
+    font-size: 18px;
+}
+
+.ql-size-24 {
+    font-size: 24px;
+}
+
+.ql-size-36 {
+    font-size: 36px;
+}
+
+/* Alignment */
+.ql-align-center {
+    text-align: center;
+}
+
+.ql-align-right {
+    text-align: right;
+}
+
+.ql-align-justify {
+    text-align: justify;
+}
+
+/* =========================================
+   2. LOGIN SCREEN (JSM Associates Theme)
+   ========================================= */
+.admin-login-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: #050505;
+    /* Jet Black */
+    overflow: hidden;
+}
+
+.admin-bg-overlay {
+    position: absolute;
+    inset: 0;
+    /* Subtle Orangish Amber Glow */
+    background: radial-gradient(circle at center, rgba(255, 191, 0, 0.1) 0%, transparent 70%);
+    z-index: 1;
+}
+
+.admin-login-card {
+    position: relative;
+    z-index: 10;
+    background: rgba(10, 10, 10, 0.95);
+    padding: 3.5rem 3rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 191, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.lock-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background: rgba(255, 191, 0, 0.05);
+    border: 1px solid rgba(255, 191, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 15px rgba(255, 191, 0, 0.1);
+}
+
+.admin-login-card h2 {
+    font-family: 'Playfair Display', serif;
+    color: #FFBF00;
+    /* Orangish Amber */
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.login-subtitle {
+    color: #888;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 2.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    background: #000;
+    border: 1px solid #333;
+    color: #FFBF00;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #FFBF00;
+    box-shadow: 0 0 0 2px rgba(255, 191, 0, 0.1);
+}
+
+.error-msg {
+    color: #ff4444;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 68, 68, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 68, 68, 0.2);
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: #FFBF00;
+    border: none;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #e6a800;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 191, 0, 0.25);
+}
+
+/* =========================================
+   3. ADMIN SHARED FORM INPUTS
+   ========================================= */
+.input-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.input-block label {
+    display: block;
+    color: #FFBF00;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dark-input {
+    width: 100%;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.dark-input:focus {
+    border-color: #FFBF00;
+}
+
+.title-input {
+    font-size: 1.2rem;
+    border-bottom: 2px solid #FFBF00;
+}
+
+/* Native Select Styling */
+select.dark-input {
+    appearance: none;
+    /* Updated SVG to Orangish Amber */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFBF00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1.2em;
+    cursor: pointer;
+}
+
+select.dark-input option {
+    background: #111;
+    color: #fff;
+}
+
+/* =========================================
+   4. EDITOR LAYOUT & PANELS
+   ========================================= */
+.admin-page-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050505;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+.admin-left-panel {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.panel-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    flex-shrink: 0;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.back-link-btn {
+    background: none;
+    border: 1px solid #333;
+    color: #888;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.back-link-btn:hover {
+    border-color: #FFBF00;
+    color: #FFBF00;
+}
+
+.panel-header h1 {
+    margin: 0;
+    color: #FFBF00;
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.action-btn.save {
+    background: #FFBF00;
+    color: #000;
+}
+
+.action-btn.save:hover:not(:disabled) {
+    background: #e6a800;
+    box-shadow: 0 4px 15px rgba(255, 191, 0, 0.2);
+}
+
+.action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+.editor-scroll-area {
+    padding: 2rem;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+/* Scrollbar for left panel */
+.editor-scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+
+.editor-scroll-area::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+.editor-scroll-area::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+.editor-scroll-area::-webkit-scrollbar-thumb:hover {
+    background: #FFBF00;
+}
+
+.author-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* --- UPLOAD CONTAINERS --- */
+.upload-container {
+    background: #111;
+    border: 1px dashed #333;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.upload-container:hover {
+    border-color: #FFBF00;
+}
+
+.upload-btn {
+    background: #222;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #333;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.upload-btn:hover {
+    background: rgba(255, 191, 0, 0.1);
+    border-color: #FFBF00;
+    color: #FFBF00;
+}
+
+/* =========================================
+   5. CROPPER MODAL (Shared)
+   ========================================= */
+.cropper-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cropper-container {
+    background: #0a0a0a;
+    width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 191, 0, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+}
+
+.crop-area {
+    position: relative;
+    height: 400px;
+    background: #000;
+}
+
+.cropper-controls {
+    padding: 1.5rem;
+    background: #111;
+}
+
+.cropper-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cropper-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.save-crop {
+    background: #FFBF00;
+    color: #000;
+}
+
+.save-crop:hover {
+    background: #fff;
+}
+
+.cancel-crop {
+    background: transparent;
+    border: 1px solid #444 !important;
+    color: #fff;
+}
+
+.cancel-crop:hover {
+    background: #222;
+    border-color: #666 !important;
+}
+
+/* =========================================
+   6. BLOG SPECIFIC PREVIEW CLASSES
+   ========================================= */
+.admin-right-panel {
+    background: #000;
+    padding: 3rem;
+    overflow-y: auto;
+    position: relative;
+}
+
+.mock-browser {
+    background: #0e0e0e;
+    border: 1px solid #222;
+    padding: 4rem;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   7. RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+    .admin-page-container {
+        display: block;
+        overflow-y: auto;
+    }
+
+    .admin-left-panel {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #333;
+    }
+
+    .admin-right-panel {
+        display: none;
+    }
+}

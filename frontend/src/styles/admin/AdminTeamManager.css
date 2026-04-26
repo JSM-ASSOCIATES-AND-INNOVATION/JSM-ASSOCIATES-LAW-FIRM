@@ -1,0 +1,550 @@
+/* =========================================
+   ADMIN TEAM MANAGER (JSM THEME)
+   ========================================= */
+
+.admin-team-root {
+    background-color: #0a0a0a;
+    min-height: 100vh;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+    padding-top: 130px;
+    padding-bottom: 100px;
+}
+
+.admin-team-container,
+.admin-form-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER --- */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header-title-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-back-btn {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #333333;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.admin-back-btn:hover {
+    border-color: #FFBF00;
+    color: #FFBF00;
+    background: rgba(255, 191, 0, 0.05);
+}
+
+.header-icon {
+    color: #FFBF00;
+}
+
+.header-title {
+    color: #FFBF00;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.admin-submit-btn {
+    background: #FFBF00;
+    color: #000000;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.admin-submit-btn:hover {
+    background: #e6a800;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 191, 0, 0.2);
+}
+
+/* --- EMPTY STATE --- */
+.admin-empty-state {
+    text-align: center;
+    padding: 100px 20px;
+    color: #555555;
+}
+
+.empty-icon {
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* --- TOAST MESSAGES --- */
+.toast-message {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 0.3s ease forwards;
+}
+
+.toast-message.success {
+    background: #FFBF00;
+    color: #000000;
+}
+
+.toast-message.error {
+    background: #ff4444;
+    color: #ffffff;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* =========================================
+   GRID VIEW (Cards)
+   ========================================= */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.team-card {
+    background: #111111;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    border-color: #333333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-image-box {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: #000000;
+    overflow: hidden;
+}
+
+.card-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.team-card:hover .card-image-box img {
+    opacity: 1;
+}
+
+.order-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10;
+}
+
+.order-controls button {
+    background: rgba(0, 0, 0, 0.8);
+    color: #FFBF00;
+    border: 1px solid #FFBF00;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.order-controls button:hover:not(:disabled) {
+    background: #FFBF00;
+    color: #000;
+}
+
+.order-controls button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.homepage-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ffffff;
+    color: #000000;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    border-radius: 4px;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.card-category-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: #FFBF00;
+    color: #000000;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.card-info {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin: 0 0 5px 0;
+    color: #ffffff;
+}
+
+.card-role {
+    margin: 0;
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.card-actions {
+    display: flex;
+    border-top: 1px solid #222222;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.edit-btn {
+    color: #FFBF00;
+    border-right: 1px solid #222222;
+}
+
+.edit-btn:hover {
+    background: rgba(255, 191, 0, 0.1);
+}
+
+.delete-btn {
+    color: #ff4444;
+}
+
+.delete-btn:hover {
+    background: rgba(255, 68, 68, 0.1);
+}
+
+/* =========================================
+   FORM VIEW
+   ========================================= */
+.admin-form-container {
+    max-width: 1000px;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #222222;
+    padding-bottom: 20px;
+}
+
+.form-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: #FFBF00;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: #888888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #ffffff;
+}
+
+.admin-form-view {
+    background: #111111;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #222222;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.form-inputs-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-block label {
+    color: #888888;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.dark-input {
+    width: 100%;
+    padding: 14px;
+    background: #000000;
+    border: 1px solid #333333;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.dark-input:focus {
+    border-color: #FFBF00;
+}
+
+select.dark-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFBF00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 1.2em;
+    cursor: pointer;
+}
+
+select.dark-input option {
+    background: #111111;
+    color: #ffffff;
+}
+
+/* Image Dropzone */
+.image-dropzone {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    background: #000000;
+    border: 2px dashed #444444;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.image-dropzone:hover {
+    border-color: #FFBF00;
+}
+
+.image-dropzone img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dropzone-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #666666;
+    gap: 10px;
+}
+
+/* Homepage Toggle Box */
+.homepage-toggle-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 191, 0, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 191, 0, 0.3);
+}
+
+.homepage-toggle-box input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    accent-color: #FFBF00;
+}
+
+.toggle-label-content {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.toggle-label-content strong {
+    color: #FFBF00;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.toggle-label-content span {
+    color: #888888;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+/* Social Links */
+.social-links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Buttons */
+.form-actions-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    border-top: 1px solid #222222;
+    padding-top: 30px;
+}
+
+.btn-solid-cancel {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #444444;
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-solid-cancel:hover {
+    background: #222222;
+}
+
+.btn-solid-gold {
+    background: #FFBF00;
+    color: #000000;
+    border: none;
+    padding: 12px 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-solid-gold:hover:not(:disabled) {
+    background: #e6a800;
+    box-shadow: 0 4px 15px rgba(255, 191, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-solid-gold:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .form-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .image-upload-section {
+        height: 350px;
+    }
+
+    .social-links-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-team-root {
+        padding: 120px 15px 60px 15px;
+    }
+
+    .admin-form-view {
+        padding: 25px 20px;
+    }
+}

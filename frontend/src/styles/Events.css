@@ -1,0 +1,600 @@
+/* =========================================
+   1. THEMING & VARIABLES (Luxurious Black, White & Gold)
+   ========================================= */
+:root {
+    --gold-primary: #d4af37;
+    --gold-hover: #b5952f;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Dark Theme Variables */
+.events-page.dark {
+    --bg-color: #050505;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --overlay-bg: linear-gradient(to right, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.85) 45%, rgba(0, 0, 0, 0.2) 100%);
+    --card-bg: #000000;
+    --card-border: rgba(255, 255, 255, 0.1);
+    --modal-bg: rgba(0, 0, 0, 0.85);
+    --tile-bg: #111111;
+    --btn-secondary-bg: rgba(255, 255, 255, 0.05);
+    --btn-secondary-border: rgba(255, 255, 255, 0.2);
+}
+
+/* Light Theme Variables */
+.events-page.light {
+    --bg-color: #fdfdfd;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --overlay-bg: linear-gradient(to right, rgba(253, 253, 253, 0.95) 0%, rgba(253, 253, 253, 0.85) 45%, rgba(255, 255, 255, 0.2) 100%);
+    --card-bg: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.1);
+    --modal-bg: rgba(255, 255, 255, 0.9);
+    --tile-bg: #ffffff;
+    --btn-secondary-bg: rgba(0, 0, 0, 0.05);
+    --btn-secondary-border: rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   2. PAGE LAYOUT (STRICTLY ONE SCREEN)
+   ========================================= */
+.events-page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    font-family: var(--font-body);
+    user-select: none;
+    transition: background-color 0.5s ease;
+}
+
+.center-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.luxury-text {
+    font-family: var(--font-heading);
+    color: var(--gold-primary);
+    font-size: 3rem;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   3. BACKGROUND
+   ========================================= */
+.events-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--overlay-bg);
+    z-index: 2;
+    transition: background 0.5s ease;
+}
+
+.bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    animation: bgPan 25s infinite alternate linear;
+}
+
+@keyframes bgPan {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+}
+
+.key-anim {
+    animation: bgFade 1s ease-out forwards, bgPan 25s infinite alternate linear;
+}
+
+@keyframes bgFade {
+    from {
+        opacity: 0;
+        filter: blur(15px);
+    }
+
+    to {
+        opacity: 0.4;
+        filter: blur(0px);
+    }
+}
+
+/* =========================================
+   4. CONTENT (Flexbox Centering & Clamping)
+   ========================================= */
+.events-content {
+    position: absolute;
+    top: 0;
+    left: 8%;
+    height: 100vh;
+    width: 45%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--text-primary);
+    pointer-events: none;
+    padding-top: 60px;
+}
+
+.events-content>* {
+    pointer-events: auto;
+}
+
+.status-row {
+    align-self: flex-start;
+    margin-bottom: 1.5vh;
+}
+
+.event-status {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.status-upcoming {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold-primary);
+    border: 1px solid var(--gold-primary);
+}
+
+.status-past {
+    background: var(--btn-secondary-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--text-secondary);
+}
+
+.event-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: 1.5vh;
+    color: var(--text-primary);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.event-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-primary), transparent);
+    margin-bottom: 2vh;
+}
+
+.event-meta {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 2vh;
+    color: var(--gold-primary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.event-desc {
+    font-size: clamp(1rem, 1.1vw, 1.15rem);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 4vh;
+    max-width: 90%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- 🚨 BUTTON GROUP (FIXED INVISIBLE TEXT BUG) --- */
+.button-group {
+    display: flex;
+    gap: 20px;
+    align-self: flex-start;
+}
+
+.button-group button,
+.button-group a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 32px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Primary Button (Always Solid Gold with Hard Black Text) */
+.view-event-btn {
+    background: var(--gold-primary) !important;
+    border: 1px solid var(--gold-primary) !important;
+    color: #050505 !important;
+    /* Force black text */
+}
+
+.view-event-btn:hover {
+    background: transparent !important;
+    color: var(--gold-primary) !important;
+    /* Turns text gold on hover */
+}
+
+/* Secondary Button */
+.past-events-btn {
+    background: transparent !important;
+    border: 1px solid var(--gold-primary) !important;
+    color: var(--text-primary) !important;
+    /* Force white text in dark mode */
+}
+
+.past-events-btn:hover {
+    background: var(--gold-primary) !important;
+    color: #050505 !important;
+}
+
+/* =========================================
+   5. 3D CAROUSEL STAGE
+   ========================================= */
+.carousel-stage {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    perspective: 2500px;
+    z-index: 20;
+    touch-action: pan-y;
+}
+
+.carousel-stage.single-item {
+    pointer-events: none;
+}
+
+.carousel-wheel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.carousel-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 420px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    transform: translate(-50%, -50%) rotateY(calc(var(--i) * (360deg / var(--total)))) translateZ(var(--radius));
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-box-reflect: below 15px linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.4);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.carousel-card.active {
+    border: 2px solid var(--gold-primary);
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+    z-index: 100;
+    transform: translate(-50%, -50%) rotateY(calc(var(--i) * (360deg / var(--total)))) translateZ(calc(var(--radius) + 40px)) scale(1.1);
+}
+
+.carousel-card.active img {
+    filter: grayscale(0%) brightness(1);
+}
+
+.card-past-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    padding: 4px 10px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 1px solid var(--card-border);
+}
+
+/* =========================================
+   6. PAST EVENTS OVERLAY (Grid)
+   ========================================= */
+.past-events-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--modal-bg);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.close-overlay-btn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+    z-index: 10001;
+}
+
+.close-overlay-btn:hover {
+    transform: rotate(90deg);
+    color: var(--gold-primary);
+}
+
+.past-events-container {
+    width: 90%;
+    max-width: 1400px;
+    height: 80%;
+    overflow-y: auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.past-events-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.past-events-container::-webkit-scrollbar-thumb {
+    background: var(--gold-primary);
+    border-radius: 4px;
+}
+
+.overlay-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.overlay-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold-primary);
+    margin: 0 auto 4rem;
+}
+
+.past-events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.past-event-tile {
+    background: var(--tile-bg);
+    border: 1px solid var(--card-border);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+.past-event-tile:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold-primary);
+}
+
+.tile-image-wrapper {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.tile-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.past-event-tile:hover img {
+    transform: scale(1.08);
+}
+
+.tile-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.tile-overlay span {
+    color: #fff;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--gold-primary);
+    padding-bottom: 4px;
+    font-weight: 600;
+}
+
+.past-event-tile:hover .tile-overlay {
+    opacity: 1;
+}
+
+.tile-info {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.tile-info h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tile-date {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   7. PERFECT MOBILE & RESPONSIVE FIXES
+   ========================================= */
+
+@media (max-width: 1200px) {
+    .events-content {
+        width: 50%;
+        left: 5%;
+    }
+
+    .carousel-stage {
+        width: 500px;
+        height: 500px;
+        right: -5%;
+        transform: translateY(-50%) scale(0.85);
+    }
+}
+
+/* --- 🚨 MOBILE VIEW (The Final Title & Button Fixes) --- */
+@media (max-width: 768px) {
+
+    .events-page.dark .bg-overlay {
+        background: linear-gradient(to top, rgba(5, 5, 5, 1) 0%, rgba(5, 5, 5, 0.98) 55%, rgba(0, 0, 0, 0.4) 100%) !important;
+    }
+
+    .events-page.light .bg-overlay {
+        background: linear-gradient(to top, rgba(253, 253, 253, 1) 0%, rgba(253, 253, 253, 0.98) 55%, rgba(255, 255, 255, 0.4) 100%) !important;
+    }
+
+    .carousel-stage {
+        left: 50% !important;
+        right: auto !important;
+        top: 22% !important;
+        transform: translate(-50%, -50%) scale(0.42) !important;
+        width: 600px;
+        height: 600px;
+    }
+
+    .carousel-card,
+    .carousel-card.active {
+        -webkit-box-reflect: unset !important;
+        -webkit-box-reflect: none !important;
+    }
+
+    /* Expand text area so it doesn't squish */
+    .events-content {
+        width: 100% !important;
+        left: 0 !important;
+        top: auto !important;
+        bottom: 0 !important;
+        height: 60vh !important;
+        /* Gave it more height so title can expand */
+        justify-content: flex-end !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 0 20px 30px 20px !important;
+    }
+
+    /* 🚨 CRITICAL TITLE FIX: Remove clamps so it expands fully */
+    .event-title {
+        font-size: 1.6rem !important;
+        margin-bottom: 15px !important;
+        -webkit-line-clamp: unset !important;
+        /* Stops the title from vanishing */
+        display: block !important;
+        white-space: normal !important;
+        line-height: 1.2 !important;
+    }
+
+    .event-desc {
+        font-size: 0.9rem !important;
+        margin-bottom: 1.5rem !important;
+        -webkit-line-clamp: 3 !important;
+        /* Keep description clamped so buttons aren't pushed off screen */
+    }
+
+    .event-divider {
+        margin: 1rem auto !important;
+        background: linear-gradient(90deg, transparent, var(--gold-primary), transparent) !important;
+    }
+
+    .event-meta {
+        justify-content: center !important;
+        margin-bottom: 15px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .button-group {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+        align-self: center !important;
+    }
+
+    .button-group button,
+    .button-group a {
+        width: 100% !important;
+        padding: 14px 20px !important;
+    }
+}

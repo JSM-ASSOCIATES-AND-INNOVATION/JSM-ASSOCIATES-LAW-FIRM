@@ -1,0 +1,369 @@
+/* ============================================
+   FOOTER (Powered by JSM Global Engine)
+   ============================================ */
+
+/* --- FOOTER CONTAINER --- */
+.footer {
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--text-main);
+    background: var(--bg-secondary);
+    font-family: 'Inter', sans-serif;
+    overflow: visible;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+/* --- BACKGROUND WAVES --- */
+.background {
+    position: absolute;
+    z-index: 0;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    width: 100%;
+    min-width: 150vw;
+    height: 250px;
+    pointer-events: none;
+    opacity: 1;
+}
+
+.wave-svg {
+    color: var(--accent-primary);
+    transition: color var(--transition-speed) ease;
+}
+
+/* --- INNER CONTENT --- */
+.footer-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 5% 30px;
+    box-sizing: border-box;
+}
+
+/* --- TOP GRID --- */
+.footer-grid-top {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2.5rem;
+    transition: border-color var(--transition-speed) ease;
+}
+
+/* --- BRANDING --- */
+.logo-group h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin: 0;
+    line-height: 0.9;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color var(--transition-speed) ease;
+}
+
+.logo-group .law-firm {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--accent-primary);
+    letter-spacing: 0.42em;
+    margin-left: 3px;
+    margin-top: 8px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.tagline {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-top: 1.5rem;
+    max-width: 320px;
+    color: var(--text-muted);
+    text-align: left;
+}
+
+/* --- SOCIALS --- */
+.socials {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    color: var(--accent-primary);
+    transition: all 0.3s ease;
+}
+
+.socials a:hover {
+    background: var(--accent-primary);
+    color: var(--bg-main);
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px var(--accent-glow);
+}
+
+/* --- GIANT LETTERS (J-S-M) --- */
+.abbr-wrapper {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 1.2rem;
+    gap: 2px;
+    white-space: nowrap;
+}
+
+.giant-letter {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(3rem, 4.5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.8;
+    color: var(--text-heading);
+    margin-right: 0;
+    transform: translateY(0);
+}
+
+.abbr-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    letter-spacing: 0.05em;
+    transform: translateY(0);
+}
+
+/* --- LINKS --- */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer-links li::before {
+    content: '•';
+    position: absolute;
+    left: 0.2rem;
+    top: -2px;
+    color: var(--accent-primary);
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.footer-links a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--accent-primary);
+}
+
+/* --- BOTTOM GRID --- */
+.footer-grid-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.contact-info h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin: 0 0 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    color: var(--text-heading);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.contact-icon {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+/* --- MAP --- */
+.footer-map {
+    width: 100%;
+    height: 200px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    filter: grayscale(100%) brightness(0.6) contrast(1.2);
+    transition: filter 0.3s, border-color 0.3s;
+}
+
+.footer-map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer-map:hover {
+    filter: grayscale(0%) brightness(1);
+    border-color: var(--accent-primary);
+}
+
+.footer.light-theme .footer-map {
+    filter: grayscale(100%) brightness(0.9) contrast(1);
+}
+
+/* --- COPYRIGHT BAR --- */
+.footer-copyright {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-copyright p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* =========================================
+   PERFECT MOBILE & TABLET ALIGNMENT
+   ========================================= */
+
+@media (max-width: 1024px) {
+    .footer-grid-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    .footer-grid-bottom {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footer-map {
+        height: 250px;
+    }
+}
+
+/* --- PHONE VIEW --- */
+@media (max-width: 768px) {
+    .footer {
+        margin-top: 60px;
+    }
+
+    .footer-inner {
+        padding: 40px 1.5rem 20px;
+    }
+
+    .footer-grid-top {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+    }
+
+    /* Pulls the Logo section to the top, spanning all 3 columns */
+    .footer-col:nth-child(1) {
+        grid-column: 1 / -1;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .tagline {
+        margin: 1.5rem auto 0;
+        text-align: center;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+
+    .giant-letter {
+        font-size: 2.2rem;
+    }
+
+    .abbr-text {
+        font-size: 0.75rem;
+        letter-spacing: 0;
+    }
+
+    .footer-links li {
+        padding-left: 1rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .footer-links li::before {
+        left: -2px;
+        font-size: 1rem;
+    }
+
+    .footer-links a {
+        font-size: 0.85rem;
+    }
+
+    .footer-grid-bottom {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .contact-info h4 {
+        font-size: 1.2rem;
+    }
+
+    .footer-map {
+        height: 180px;
+    }
+
+    .footer-copyright p {
+        font-size: 0.65rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-inner {
+        padding: 30px 1rem 20px;
+    }
+}

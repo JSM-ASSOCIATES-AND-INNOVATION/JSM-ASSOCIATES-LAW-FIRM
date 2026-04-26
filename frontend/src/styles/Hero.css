@@ -1,0 +1,145 @@
+/* =========================================
+   1. HERO CONTAINER (JSM Theme - Minimalist)
+   ========================================= */
+.hero-section {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Pushes logo to center, text to bottom */
+    align-items: center;
+    background-color: var(--bg-main);
+    transition: background-color var(--transition-speed) ease;
+    padding: 140px 20px 60px;
+    /* Top padding clears the navbar */
+    overflow: hidden;
+}
+
+/* =========================================
+   2. SVG LOGO (Theme Reactive)
+   ========================================= */
+.hero-logo-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 250px;
+    /* Adjust this to make your logo bigger/smaller */
+    margin-bottom: 2rem;
+}
+
+.jsm-hero-svg {
+    width: 100%;
+    height: auto;
+    /* 🚨 This connects the SVG fill="currentColor" to the JSM Theme Engine */
+    color: var(--accent-primary);
+    filter: drop-shadow(0 10px 30px var(--accent-glow));
+    transition: color var(--transition-speed) ease, filter var(--transition-speed) ease;
+}
+
+/* =========================================
+   3. ROYAL TYPOGRAPHY (Bottom Text)
+   ========================================= */
+.hero-content {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: 6px;
+    color: var(--text-heading);
+}
+
+.hero-divider {
+    width: 80px;
+    height: 3px;
+    background: var(--accent-primary);
+    margin: 1.5rem auto;
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.hero-subtitle-small {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--accent-primary);
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   4. ELEGANT ENTRANCE ANIMATIONS
+   ========================================= */
+.fade-in {
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.fade-in-up {
+    opacity: 0;
+    animation: fadeUp 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   5. RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 120px 20px 40px;
+    }
+
+    .hero-logo-wrapper {
+        max-width: 180px;
+    }
+
+    .hero-title {
+        letter-spacing: 4px;
+    }
+
+    .hero-subtitle {
+        letter-spacing: 4px;
+    }
+}

@@ -1,0 +1,638 @@
+/* =========================================
+   ADMIN PORTAL DASHBOARD STYLES (JSM THEME)
+   ========================================= */
+
+/* BASE LAYOUT */
+.admin-portal-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #050505;
+    /* Deepest black */
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, sans-serif;
+    align-items: flex-start;
+}
+
+/* =========================================
+   SIDEBAR (Razor Sharp & Locked in Place)
+   ========================================= */
+.admin-sidebar {
+    width: 280px;
+    min-width: 280px;
+    background: #080808;
+    border-right: 1px solid rgba(255, 191, 0, 0.15);
+    /* Orangish Amber tint */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 45px 0;
+    z-index: 50;
+    overflow-y: auto;
+}
+
+/* Hide scrollbar for cleaner look */
+.admin-sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.admin-sidebar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* BRANDING */
+.sidebar-branding {
+    padding: 0 35px 35px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 25px;
+}
+
+.sidebar-branding h2 {
+    color: #FFBF00 !important;
+    /* Orangish Amber */
+    margin: 0 0 8px 0;
+    font-size: 1.65rem;
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    text-shadow: 0 2px 15px rgba(255, 191, 0, 0.2);
+}
+
+.sidebar-branding span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #64748b !important;
+    font-weight: 700;
+}
+
+/* NAVIGATION ITEMS */
+.admin-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 35px;
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    outline: none !important;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+/* Sleek animated left-border indicator */
+.admin-nav-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #FFBF00;
+    transform: scaleY(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+/* HOVER STATE */
+.admin-nav-item:hover {
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(255, 191, 0, 0.05) 0%, transparent 100%);
+}
+
+.admin-nav-item:hover::before {
+    transform: scaleY(0.4);
+    opacity: 0.5;
+}
+
+/* ACTIVE STATE */
+.admin-nav-item.active {
+    color: #FFBF00;
+    background: linear-gradient(90deg, rgba(255, 191, 0, 0.12) 0%, transparent 100%);
+}
+
+.admin-nav-item.active::before {
+    transform: scaleY(1);
+    box-shadow: 2px 0 10px rgba(255, 191, 0, 0.6);
+}
+
+.admin-nav-item svg {
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.admin-nav-item:hover svg {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+.admin-nav-item.active svg {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255, 191, 0, 0.5));
+    transform: translateX(3px);
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+    color: #ef4444 !important;
+}
+
+.logout-btn::before {
+    background: #ef4444;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.08) 0%, transparent 100%) !important;
+    color: #fff !important;
+}
+
+.logout-btn:hover::before {
+    transform: scaleY(1);
+    opacity: 1;
+    box-shadow: 2px 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.logout-btn:hover svg {
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.4));
+}
+
+/* =========================================
+   MAIN CONTENT AREA
+   ========================================= */
+.admin-content {
+    flex: 1;
+    padding: 50px 60px;
+    width: calc(100% - 280px);
+    margin-left: 280px;
+}
+
+.admin-tab-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   DASHBOARD HEADER & STATS 
+   ========================================= */
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 191, 0, 0.2);
+    padding-bottom: 20px;
+}
+
+.dash-header h1 {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-size: 2.4rem;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.dash-header p {
+    color: #9ca3af;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.stats-box {
+    display: flex;
+    gap: 40px;
+    padding: 15px 30px;
+    background: transparent;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.stat span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #9ca3af;
+    font-weight: 600;
+}
+
+.stat strong {
+    font-size: 2.2rem;
+    color: #ffffff;
+    line-height: 1;
+    font-family: 'Times New Roman', serif;
+}
+
+.text-gold {
+    color: #FFBF00 !important;
+}
+
+/* =========================================
+   GENERIC CARD COMPONENT 
+   ========================================= */
+.glass-card {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+/* =========================================
+   MANUSCRIPT SUBMISSIONS GRID 
+   ========================================= */
+.submissions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.submission-card {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.submission-card:hover {
+    transform: translateY(-4px);
+    border-color: #FFBF00;
+    box-shadow: 0 10px 30px rgba(255, 191, 0, 0.1);
+}
+
+.sub-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 15px;
+}
+
+.id-badge {
+    background: rgba(255, 191, 0, 0.1);
+    color: #FFBF00;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: monospace;
+    letter-spacing: 1px;
+}
+
+.sub-date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #9ca3af;
+    font-size: 0.85rem;
+}
+
+.sub-card-body {
+    flex: 1;
+    margin-bottom: 30px;
+}
+
+.sub-title {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sub-author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #FFBF00;
+    font-size: 0.95rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* =========================================
+   CARD FOOTER & BUTTONS 
+   ========================================= */
+.sub-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.quick-status-update {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inline-status-drop {
+    padding: 10px 15px;
+    border-radius: 4px;
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s ease;
+}
+
+.inline-status-drop:focus {
+    border-color: #FFBF00;
+}
+
+button {
+    font-family: 'Inter', sans-serif;
+}
+
+.review-btn,
+.primary-btn,
+.admin-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent !important;
+    color: #FFBF00 !important;
+    border: 1px solid #FFBF00 !important;
+    padding: 10px 20px;
+    border-radius: 4px !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.review-btn:hover,
+.primary-btn:hover,
+.admin-primary-btn:hover {
+    background: #FFBF00 !important;
+    color: #000 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 191, 0, 0.25);
+}
+
+/* =========================================
+   SEARCH BAR & FILTER (Manuscripts Tab)
+   ========================================= */
+.admin-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 4px !important;
+    background: #0a0a0a !important;
+    color: #fff !important;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.admin-input:focus {
+    border-color: #FFBF00 !important;
+}
+
+/* =========================================
+   MODAL OVERLAY & BOX
+   ========================================= */
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-modal-box {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 4px;
+    border-top: 4px solid #FFBF00 !important;
+    max-width: 550px;
+    width: 90%;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.cancel-btn {
+    background: transparent !important;
+    color: #9ca3af !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #0a0a0a inset !important;
+    -webkit-text-fill-color: white !important;
+}
+
+/* =========================================
+   LOCKDOWN SCREEN (Login)
+   ========================================= */
+.admin-lock-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 5, 5, 0.9);
+    backdrop-filter: blur(15px);
+    z-index: 99999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: lockFadeIn 0.3s ease-out;
+}
+
+@keyframes lockFadeIn {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+
+    to {
+        opacity: 1;
+        backdrop-filter: blur(15px);
+    }
+}
+
+.lock-box {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 191, 0, 0.3);
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    position: relative;
+    overflow: hidden;
+}
+
+.lock-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #FFBF00, transparent);
+}
+
+.lock-icon-ring {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: rgba(255, 191, 0, 0.05);
+    border: 1px solid rgba(255, 191, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(255, 191, 0, 0.1) inset;
+}
+
+.lock-box h2 {
+    color: #fff;
+    margin: 0 0 10px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.lock-box p {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+.lock-input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.key-icon {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: #64748b;
+}
+
+.lock-input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: #FFBF00;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+.lock-input-group input:focus {
+    border-color: #FFBF00;
+    box-shadow: 0 0 0 2px rgba(255, 191, 0, 0.15);
+}
+
+.lock-error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+.unlock-btn {
+    width: 100%;
+    padding: 15px;
+    background: #FFBF00;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.unlock-btn:hover {
+    background: #e6a800;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 191, 0, 0.25);
+}

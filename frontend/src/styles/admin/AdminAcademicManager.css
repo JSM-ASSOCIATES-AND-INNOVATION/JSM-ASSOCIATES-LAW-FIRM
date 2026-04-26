@@ -1,0 +1,307 @@
+/* =========================================
+   ADMIN ACADEMIC MANAGER (JSM THEME)
+   ========================================= */
+
+.admin-academic-root {
+    padding: 150px 20px 100px 20px;
+    background-color: #0a0a0a;
+    /* Jet Black */
+    min-height: 100vh;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-academic-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- HEADER --- */
+.admin-academic-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.admin-back-btn {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #333333;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.admin-back-btn:hover {
+    border-color: #FFBF00;
+    /* Orangish Amber */
+    color: #FFBF00;
+    background: rgba(255, 191, 0, 0.05);
+}
+
+.header-icon {
+    color: #FFBF00;
+}
+
+.header-title {
+    color: #FFBF00;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- UPLOAD CARD --- */
+.admin-upload-card {
+    background: #111111;
+    padding: 35px;
+    border-radius: 12px;
+    border: 1px solid #222222;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.admin-upload-card h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-family: 'Playfair Display', serif;
+    border-bottom: 1px solid #222;
+    padding-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    color: #888888;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    background: #000000;
+    border: 1px solid #333333;
+    color: #ffffff;
+    border-radius: 6px;
+    outline: none;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus {
+    border-color: #FFBF00;
+    box-shadow: 0 0 0 2px rgba(255, 191, 0, 0.1);
+}
+
+/* File Upload Area */
+.file-upload-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.image-preview-box {
+    width: 80px;
+    height: 80px;
+    background: #000000;
+    border: 1px dashed #444444;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-preview-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    padding: 5px;
+}
+
+.placeholder-icon {
+    color: #444444;
+}
+
+.file-upload-wrapper input[type="file"] {
+    color: #888888;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.file-upload-wrapper input[type="file"]::file-selector-button {
+    background: #222222;
+    border: 1px solid #333333;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.file-upload-wrapper input[type="file"]::file-selector-button:hover {
+    background: #FFBF00;
+    color: #000000;
+    border-color: #FFBF00;
+}
+
+/* Submit Button */
+.admin-submit-btn {
+    background: #FFBF00;
+    color: #000000;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.admin-submit-btn:hover:not(:disabled) {
+    background: #e6a800;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 191, 0, 0.2);
+}
+
+.admin-submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+/* --- GRID OF EXISTING COLLABS --- */
+.section-divider-title {
+    color: #888888;
+    border-bottom: 1px solid #222222;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.empty-state-text {
+    color: #555555;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.collabs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.collab-card {
+    background: #111111;
+    padding: 30px 20px;
+    text-align: center;
+    border: 1px solid #222222;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.collab-card:hover {
+    transform: translateY(-5px);
+    border-color: #FFBF00;
+    box-shadow: 0 10px 30px rgba(255, 191, 0, 0.05);
+}
+
+.delete-collab-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #ff4444;
+    background: rgba(255, 68, 68, 0.1);
+    border: 1px solid rgba(255, 68, 68, 0.2);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete-collab-btn:hover {
+    background: #ff4444;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.collab-logo-container {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.collab-logo-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.collab-name {
+    margin: 0;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .admin-academic-root {
+        padding: 120px 15px 60px 15px;
+    }
+
+    .admin-upload-card {
+        padding: 25px;
+    }
+
+    .file-upload-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .collabs-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 15px;
+    }
+}

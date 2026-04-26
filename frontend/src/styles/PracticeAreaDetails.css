@@ -1,0 +1,224 @@
+/* ============================================
+   PracticeAreaDetails.css - Final Solid Edition
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+:root {
+    --amber-gold: #FFBF00;
+    --dark-gold: #b8860b;
+    --deep-black: #050505;
+    --charcoal: #1a1a1a;
+    --creme-paper: #F9F7F2;
+}
+
+/* --- WRAPPER (Strict Full Screen Lock) --- */
+.details-wrapper {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* 🚨 Prevents outer window scrolling */
+    transition: background-color 0.5s ease;
+    padding: 0;
+}
+
+.details-wrapper.dark-theme {
+    background-color: var(--deep-black);
+    background-image: radial-gradient(circle at 50% 30%, #151515 0%, #050505 70%);
+}
+
+.details-wrapper.light-theme {
+    background-color: var(--creme-paper);
+}
+
+/* --- THE CARD CONTAINER (FORCED SOLID BACKGROUNDS) --- */
+.details-container {
+    width: 90%;
+    max-width: 1000px;
+    max-height: 85vh;
+    padding: 3rem 4rem;
+    border-radius: 16px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: scaleUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    z-index: 100;
+}
+
+/* 🚨 DARK THEME FIX: 100% Solid Background */
+.details-wrapper.dark-theme .details-container {
+    background: #0a0a0a !important;
+    border: 1px solid rgba(255, 191, 0, 0.3);
+    color: #ffffff;
+}
+
+/* 🚨 LIGHT THEME FIX: 100% Solid Background */
+.details-wrapper.light-theme .details-container {
+    background: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #1a1a1a;
+}
+
+/* Gold Accent Top Border */
+.details-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: 16px 16px 0 0;
+}
+
+.details-wrapper.dark-theme .details-container::before {
+    background: linear-gradient(90deg, var(--dark-gold), var(--amber-gold), var(--dark-gold));
+}
+
+.details-wrapper.light-theme .details-container::before {
+    background: linear-gradient(90deg, #b8860b, #d4af37, #b8860b);
+}
+
+/* --- TYPOGRAPHY --- */
+.details-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    padding-bottom: 1rem;
+}
+
+.details-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.details-wrapper.dark-theme .details-title {
+    color: var(--amber-gold);
+}
+
+.details-wrapper.light-theme .details-title {
+    color: var(--dark-gold);
+}
+
+.details-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: justify;
+    opacity: 0.95;
+}
+
+/* --- GRID LIST --- */
+.details-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+    row-gap: 1rem;
+}
+
+.details-points li {
+    position: relative;
+    padding-left: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.details-points li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--amber-gold);
+}
+
+/* --- BACK BUTTON --- */
+.back-btn {
+    align-self: flex-start;
+    padding: 12px 30px;
+    background: transparent;
+    border: 1px solid var(--amber-gold);
+    color: var(--amber-gold);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.back-btn:hover {
+    background: var(--amber-gold);
+    color: #000;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================================
+   PERFECT MOBILE ALIGNMENT (NO SCROLL LOCK)
+   ========================================= */
+@media (max-width: 900px) {
+    .details-wrapper {
+        height: 100vh !important;
+        overflow: hidden !important;
+        padding: 100px 1rem 20px 1rem;
+        /* Space for 90px Navbar */
+    }
+
+    .details-container {
+        width: 100%;
+        max-height: calc(100vh - 140px);
+        /* 🚨 Keeps card contained on small screens */
+        padding: 1.5rem;
+    }
+
+    .details-title {
+        font-size: 1.4rem;
+    }
+
+    .details-desc {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+    }
+
+    .details-points {
+        grid-template-columns: 1fr;
+        /* Stack columns on mobile */
+        row-gap: 0.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .details-points li {
+        font-size: 0.8rem;
+    }
+
+    .back-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

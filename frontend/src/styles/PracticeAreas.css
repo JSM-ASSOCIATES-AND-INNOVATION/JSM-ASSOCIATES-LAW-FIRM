@@ -1,0 +1,313 @@
+/* ============================================
+   PRACTICE AREAS (Powered by JSM Global Engine)
+   ============================================ */
+.practice-areas {
+    padding: 6rem 1.5rem;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.practice-areas-container {
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+/* --- HEADER SECTION --- */
+.practice-areas-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.practice-areas-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+    color: var(--text-heading);
+}
+
+.practice-areas-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: var(--text-muted);
+    padding: 0 10px;
+}
+
+/* --- GRID LAYOUT --- */
+.practice-areas-grid {
+    display: grid;
+    /* Base mobile layout: 2 tiles side-by-side */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .practice-areas-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 tiles for Tablets */
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .practice-areas-grid {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 tiles for Desktop */
+        gap: 2rem;
+    }
+}
+
+/* --- CARDS --- */
+.practice-card {
+    position: relative;
+    min-height: 180px;
+    border-radius: 12px;
+    padding: 20px 10px;
+    text-align: center;
+    cursor: pointer;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+    .practice-card {
+        min-height: 220px;
+        padding: 30px 20px;
+        border-radius: 16px;
+    }
+}
+
+/* HOVER EFFECTS */
+.practice-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 10px 30px var(--accent-glow);
+    background: var(--accent-muted);
+}
+
+/* --- ICONS --- */
+.practice-card-icon {
+    margin-bottom: 1rem;
+    transition: transform 0.4s ease;
+    width: 38px;
+    height: 38px;
+    color: var(--accent-primary);
+}
+
+@media (min-width: 768px) {
+    .practice-card-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.practice-card-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5;
+}
+
+.practice-card:hover .practice-card-icon {
+    transform: scale(1.15) rotate(3deg);
+}
+
+/* --- CARD TEXT --- */
+.practice-card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    z-index: 2;
+    color: var(--text-heading);
+    transition: color var(--transition-speed) ease;
+}
+
+@media (min-width: 768px) {
+    .practice-card-title {
+        font-size: 1.25rem;
+    }
+}
+
+.hover-text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-primary);
+}
+
+@media (min-width: 768px) {
+    .hover-text {
+        font-size: 0.85rem;
+        margin-top: 15px;
+    }
+}
+
+.practice-card:hover .hover-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   MODAL STYLING (Glassmorphism)
+   ============================================ */
+.practice-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+    /* Ensure it stays above the navbar */
+    padding: 1rem;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.practice-modal {
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    max-width: 700px;
+    width: 100%;
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--accent-primary);
+    color: var(--text-main);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .practice-modal {
+        padding: 3.5rem;
+    }
+}
+
+/* Modal Content */
+.practice-modal h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-heading);
+}
+
+.modal-desc {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.modal-points {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-points li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    color: var(--text-main);
+}
+
+/* Custom Bullet Points */
+.modal-points li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    color: var(--accent-primary);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.2s ease;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn:hover {
+    color: var(--accent-primary);
+    transform: rotate(90deg);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Custom Scrollbar for Modal */
+.practice-modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.practice-modal::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.practice-modal::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 10px;
+}

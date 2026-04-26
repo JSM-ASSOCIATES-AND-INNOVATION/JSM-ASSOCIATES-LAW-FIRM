@@ -1,0 +1,323 @@
+/* =========================================
+   1. LAYOUT STRUCTURE & NAVBAR FIX
+   ========================================= */
+.detail-page-container {
+    display: flex;
+    width: 100vw;
+    /* CRITICAL FIX: Subtracts the Navbar height so the bottom doesn't get cut off! */
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+    background: #050505;
+    color: #fff;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* LOADING SCREEN */
+.detail-loading-screen {
+    width: 100vw;
+    height: 100vh;
+    background: #050505;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+}
+
+/* =========================================
+   2. LEFT: GALLERY SIDE (65% Width)
+   ========================================= */
+.detail-gallery-side {
+    width: 65%;
+    height: 100%;
+    position: relative;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Pushes the thumbnail strip securely to the bottom */
+}
+
+/* Main Image Stage */
+.main-stage-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #0a0a0a;
+    /* Deep dark fallback color */
+}
+
+.main-stage-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Javascript overrides this to 'contain' if selected in admin */
+    opacity: 0.85;
+    /* Soft fade toward the text side for a cinematic blend */
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+}
+
+.no-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* Animation for Image Switch */
+.fade-in-image {
+    animation: fadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 0.85;
+        filter: blur(0px);
+    }
+}
+
+/* Back Button */
+.back-btn-overlay {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.back-btn-overlay:hover {
+    border-color: #d4af37;
+    background: #d4af37;
+    color: #000;
+    transform: translateX(-5px);
+}
+
+/* "Circular Balls" Strip */
+.circular-carousel-strip {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    gap: 20px;
+    padding: 40px 30px 30px 30px;
+    /* Creates a dark gradient at the bottom so thumbnails pop */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.circular-carousel-strip::-webkit-scrollbar {
+    display: none;
+}
+
+.circle-thumb {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0.6;
+    background: #000;
+}
+
+.circle-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.circle-thumb:hover {
+    opacity: 0.9;
+    border-color: #fff;
+    transform: translateY(-5px);
+}
+
+.circle-thumb.active {
+    opacity: 1;
+    border-color: #d4af37;
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================================
+   3. RIGHT: INFO SIDE (35% Width)
+   ========================================= */
+.detail-info-side {
+    width: 35%;
+    height: 100%;
+    background: #0a0a0a;
+    border-left: 1px solid #1a1a1a;
+    padding: 3rem 4rem 3rem 3rem;
+    /* Extra right padding for breathing room */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-content-wrapper {
+    max-width: 600px;
+}
+
+.detail-badge {
+    background: rgba(212, 175, 55, 0.1);
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.detail-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 3vw, 3rem);
+    /* Fluid sizing so it never breaks layout */
+    color: #fff;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.15;
+}
+
+.detail-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 2.5rem;
+}
+
+.meta-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ccc;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.gold-icon {
+    color: #d4af37;
+}
+
+.detail-divider {
+    width: 100%;
+    height: 1px;
+    background: #222;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.detail-divider::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 2px;
+    background: #d4af37;
+}
+
+/* Scrollable Description Box */
+.detail-description-scroll {
+    overflow-y: auto;
+    max-height: 45vh;
+    /* Prevents text from pushing past screen bottom */
+    padding-right: 15px;
+    /* Room for scrollbar */
+}
+
+.detail-description-scroll p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #bbb;
+    white-space: pre-wrap;
+    /* Keeps line breaks from admin editor */
+    margin: 0 0 1.5rem 0;
+}
+
+/* Luxurious Gold Custom Scrollbar */
+.detail-description-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.detail-description-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.detail-description-scroll::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+.detail-description-scroll::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+}
+
+/* =========================================
+   4. RESPONSIVE (MOBILES/TABLETS)
+   ========================================= */
+@media (max-width: 1024px) {
+    .detail-page-container {
+        flex-direction: column;
+        overflow-y: auto;
+        height: auto;
+        min-height: calc(100vh - 80px);
+    }
+
+    .detail-gallery-side {
+        width: 100%;
+        height: 55vh;
+        border-right: none;
+        border-bottom: 1px solid #222;
+    }
+
+    .main-stage-image img {
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .detail-info-side {
+        width: 100%;
+        height: auto;
+        padding: 3rem 2rem;
+        border-left: none;
+    }
+
+    .detail-description-scroll {
+        max-height: none;
+        overflow-y: visible;
+        padding-right: 0;
+    }
+}

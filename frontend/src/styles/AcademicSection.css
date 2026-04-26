@@ -1,0 +1,229 @@
+/* =========================================
+   JSM Associates Theme Variables (Dynamic)
+   ========================================= */
+
+.academic-section {
+    /* 🚨 DARK MODE DEFAULTS (Jet Black & Orangish Amber) */
+    --accent-primary: #FFBF00;
+    --accent-muted: rgba(255, 191, 0, 0.3);
+
+    --bg-main: #0a0a0a;
+    --bg-fade: #111111;
+
+    --text-main: #ffffff;
+    --text-muted: #888888;
+
+    --border-color: #111111;
+}
+
+.academic-section.light-theme {
+    /* 🚨 LIGHT MODE OVERRIDES (Crisp White & Cherry Red) */
+    --accent-primary: #CD0000;
+    --accent-muted: rgba(205, 0, 0, 0.2);
+
+    --bg-main: #ffffff;
+    --bg-fade: #f9f9f9;
+
+    --text-main: #111111;
+    --text-muted: #666666;
+
+    --border-color: #eaeaea;
+}
+
+/* =========================================
+   ACADEMIC COLLABORATIONS SECTION
+   ========================================= */
+
+.academic-section {
+    padding: 100px 0;
+    overflow: hidden;
+    background-color: var(--bg-main);
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* --- HEADER --- */
+.academic-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.academic-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin: 0 0 15px 0;
+    color: var(--text-main);
+    transition: color 0.4s ease;
+}
+
+.academic-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--accent-primary);
+    margin: 0 auto 20px;
+    transition: background 0.4s ease;
+}
+
+.academic-subtitle {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-muted);
+    transition: color 0.4s ease;
+}
+
+/* --- MARQUEE CONTAINER --- */
+.academic-marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Gradient Fade Edges for smooth entry/exit */
+.marquee-fade-left,
+.marquee-fade-right {
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marquee-fade-left {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-main) 10%, transparent);
+}
+
+.marquee-fade-right {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-main) 10%, transparent);
+}
+
+/* --- SCROLLING TRACK --- */
+.academic-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 100px;
+    padding-left: 50px;
+    animation: seamlessScroll 40s linear infinite;
+    will-change: transform;
+}
+
+.academic-marquee-container:hover .academic-track {
+    animation-play-state: paused;
+}
+
+@keyframes seamlessScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.3333%);
+    }
+}
+
+/* --- COLLAB ITEM --- */
+.collab-item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    min-width: 180px;
+}
+
+.collab-logo-wrapper {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.collab-logo-img {
+    max-height: 100%;
+    max-width: 180px;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.5);
+    transform: scale(1);
+    transition: filter 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.collab-item:hover .collab-logo-img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+}
+
+.collab-name {
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.collab-item:hover .collab-name {
+    color: var(--accent-primary);
+}
+
+/* --- BUTTON --- */
+.academic-btn-container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.academic-btn {
+    background: transparent;
+    border: 1px solid var(--accent-primary);
+    color: var(--accent-primary);
+    padding: 12px 35px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.academic-btn:hover {
+    background: var(--accent-primary);
+    color: var(--bg-main);
+    /* Swaps to White on Red theme, Black on Amber theme */
+    box-shadow: 0 4px 15px var(--accent-muted);
+    transform: translateY(-2px);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .academic-title {
+        font-size: 2.2rem;
+    }
+
+    .academic-track {
+        gap: 60px;
+        padding-left: 30px;
+    }
+
+    .collab-item {
+        min-width: 140px;
+    }
+
+    .collab-logo-img {
+        max-width: 140px;
+    }
+
+    .marquee-fade-left,
+    .marquee-fade-right {
+        width: 80px;
+    }
+}

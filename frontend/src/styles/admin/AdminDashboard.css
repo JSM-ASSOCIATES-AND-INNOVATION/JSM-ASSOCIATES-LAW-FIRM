@@ -1,0 +1,141 @@
+/* =========================================
+   ADMIN DASHBOARD HUB (JSM THEME)
+   ========================================= */
+
+.admin-dashboard {
+    min-height: 100vh;
+    background: #050505;
+    /* Jet Black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-container {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+}
+
+/* --- HEADER --- */
+.dashboard-header h1 {
+    font-family: 'Playfair Display', serif;
+    color: #FFBF00;
+    /* Orangish Amber */
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.dashboard-header p {
+    color: #888888;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+}
+
+/* --- GRID & CARDS --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.dashboard-card {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 191, 0, 0.2);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-10px);
+    border-color: #FFBF00;
+    background: rgba(255, 191, 0, 0.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 191, 0, 0.1);
+}
+
+.card-icon {
+    color: #FFBF00;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+.dashboard-card h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.dashboard-card p {
+    color: #aaaaaa;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* --- BUTTONS --- */
+.dashboard-btn {
+    background: transparent;
+    border: 1px solid #FFBF00;
+    color: #FFBF00;
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.dashboard-card:hover .dashboard-btn {
+    background: #FFBF00;
+    color: #000000;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    color: #666666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+}
+
+.logout-btn:hover {
+    color: #ff4444;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .dashboard-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .dashboard-card {
+        padding: 2rem 1.5rem;
+    }
+}

@@ -1,0 +1,501 @@
+/* =========================================
+   ADMIN APPLICATIONS MANAGER (JSM THEME)
+   ========================================= */
+
+.admin-apps-root {
+    padding: 150px 20px 100px 20px;
+    background-color: #0a0a0a;
+    /* Jet Black */
+    min-height: 100vh;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-apps-container,
+.admin-app-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- HEADER --- */
+.admin-apps-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header-title-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-back-btn {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #333333;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.admin-back-btn:hover {
+    border-color: #FFBF00;
+    /* Orangish Amber */
+    color: #FFBF00;
+    background: rgba(255, 191, 0, 0.05);
+}
+
+.details-back {
+    margin-bottom: 30px;
+}
+
+.header-icon {
+    color: #FFBF00;
+}
+
+.header-title {
+    color: #FFBF00;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+/* Stats Badges */
+.apps-stats {
+    display: flex;
+    gap: 10px;
+}
+
+.stat-badge {
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.new-badge {
+    background: rgba(255, 191, 0, 0.1);
+    color: #FFBF00;
+    border: 1px solid rgba(255, 191, 0, 0.3);
+}
+
+.total-badge {
+    background: #111111;
+    color: #888888;
+    border: 1px solid #333333;
+}
+
+/* --- EMPTY STATE --- */
+.admin-empty-state {
+    text-align: center;
+    padding: 100px 20px;
+    color: #555555;
+}
+
+.empty-icon {
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.admin-empty-state h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #888888;
+}
+
+/* --- INBOX GRID --- */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.app-card {
+    background: #111111;
+    border: 1px solid #222222;
+    border-radius: 12px;
+    padding: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.app-card:hover {
+    transform: translateY(-4px);
+    border-color: #333333;
+}
+
+.app-card-new {
+    border-color: rgba(255, 191, 0, 0.5);
+}
+
+.app-card-new:hover {
+    border-color: #FFBF00;
+    box-shadow: 0 10px 30px rgba(255, 191, 0, 0.1);
+}
+
+.app-card-date {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #666666;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+}
+
+.app-card-center {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.app-avatar {
+    width: 60px;
+    height: 60px;
+    background: #000000;
+    border: 1px solid #333333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: #FFBF00;
+}
+
+.app-name {
+    margin: 0 0 5px 0;
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+}
+
+.app-role {
+    margin: 0 0 15px 0;
+    color: #FFBF00;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.app-id-badge {
+    background: #000000;
+    color: #888888;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    font-family: monospace;
+    border: 1px solid #222222;
+}
+
+/* Status Select */
+.app-status-wrapper {
+    margin-bottom: 20px;
+    margin-top: auto;
+}
+
+.app-status-select {
+    width: 100%;
+    padding: 12px;
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFBF00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1.2em;
+    transition: border-color 0.3s ease;
+}
+
+.app-status-select:focus {
+    border-color: #FFBF00;
+}
+
+/* Card Buttons */
+.app-card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.app-view-btn {
+    flex: 1;
+    padding: 10px;
+    background: #FFBF00;
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.app-view-btn:hover {
+    background: #e6a800;
+    transform: translateY(-2px);
+}
+
+.app-delete-btn {
+    padding: 10px;
+    background: transparent;
+    color: #ff4444;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.app-delete-btn:hover {
+    background: rgba(255, 68, 68, 0.1);
+    border-color: #ff4444;
+}
+
+/* --- DETAILS VIEW --- */
+.app-details-card {
+    background: #111111;
+    padding: 50px;
+    border-radius: 16px;
+    border: 1px solid #222222;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.details-header {
+    margin-bottom: 30px;
+}
+
+.details-ref-badge {
+    color: #FFBF00;
+    border: 1px solid rgba(255, 191, 0, 0.4);
+    background: rgba(255, 191, 0, 0.05);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: monospace;
+}
+
+.details-name {
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    margin: 15px 0 5px 0;
+    font-size: 2.5rem;
+}
+
+.details-role {
+    color: #FFBF00;
+    margin: 0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.details-meta-box {
+    background: #000000;
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    border: 1px solid #222222;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.meta-item {
+    color: #cccccc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.meta-icon {
+    color: #FFBF00;
+}
+
+.details-cover-letter {
+    margin-bottom: 50px;
+}
+
+.details-cover-letter h3 {
+    color: #888888;
+    border-bottom: 1px solid #222222;
+    padding-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.details-cover-letter p {
+    color: #e0e0e0;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    font-family: 'Garamond', serif;
+    font-size: 1.1rem;
+}
+
+/* Action Buttons inside Details */
+.details-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    border-top: 1px solid #222222;
+}
+
+.doc-download-btn {
+    flex: 1;
+    min-width: 250px;
+    padding: 16px;
+    background: #FFBF00;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.doc-download-btn:hover {
+    background: #e6a800;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 191, 0, 0.2);
+}
+
+.secondary-doc {
+    background: transparent;
+    border: 1px solid #FFBF00;
+    color: #FFBF00;
+}
+
+.secondary-doc:hover {
+    background: rgba(255, 191, 0, 0.1);
+    color: #FFBF00;
+}
+
+.details-delete-btn {
+    padding: 16px 30px;
+    background: transparent;
+    color: #ff4444;
+    border: 1px solid rgba(255, 68, 68, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.details-delete-btn:hover {
+    background: #ff4444;
+    color: #ffffff;
+    border-color: #ff4444;
+}
+
+/* --- ERROR BOUNDARY SCREEN --- */
+.admin-apps-error-screen {
+    padding: 150px 20px 100px 20px;
+    background: #050505;
+    min-height: 100vh;
+    color: #ffffff;
+    text-align: center;
+}
+
+.admin-apps-error-screen h1 {
+    color: #ff4444;
+}
+
+.error-box {
+    background: #111111;
+    padding: 30px;
+    border: 1px solid #ff4444;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+    overflow-x: auto;
+}
+
+.error-box h3 {
+    color: #ff4444;
+    margin-top: 0;
+}
+
+.error-box pre {
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .admin-apps-root {
+        padding: 120px 15px 60px 15px;
+    }
+
+    .app-details-card {
+        padding: 30px 20px;
+    }
+
+    .details-name {
+        font-size: 2rem;
+    }
+
+    .details-meta-box {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .details-actions {
+        flex-direction: column;
+    }
+
+    .doc-download-btn,
+    .details-delete-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

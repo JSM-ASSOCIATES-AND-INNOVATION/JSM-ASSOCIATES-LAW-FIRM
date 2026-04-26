@@ -1,0 +1,188 @@
+/* ============================================
+   CONTACT FORM (Powered by JSM Global Engine)
+   ============================================ */
+
+.contact-form {
+    padding: 5rem 1.5rem;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.contact-form-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- TITLE STYLING --- */
+.contact-form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-heading);
+}
+
+/* --- GRID LAYOUT --- */
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.form-field.full {
+    grid-column: 1 / -1;
+}
+
+/* --- LABELS --- */
+.form-field label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-primary);
+    transition: color var(--transition-speed) ease;
+}
+
+/* --- INPUTS & TEXTAREAS --- */
+.form-field input,
+.form-field select,
+.form-field textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Dropdown Options */
+.form-field select option {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+}
+
+/* --- BUTTONS --- */
+.form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+}
+
+.submit-btn {
+    font-family: 'Montserrat', sans-serif;
+    width: auto;
+    background-color: transparent;
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    border-radius: 4px;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: var(--accent-primary);
+    color: var(--bg-main);
+    box-shadow: 0 5px 20px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .contact-form-container {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 4rem 1.5rem;
+    }
+
+    .contact-form-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .form-actions {
+        justify-content: center;
+    }
+
+    .submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* --- IN-SITE NOTIFICATION STYLES --- */
+.form-notification {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    animation: slideFadeIn 0.3s ease-out;
+}
+
+.form-notification.success {
+    background-color: rgba(46, 204, 113, 0.1);
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    color: #2ecc71;
+}
+
+.form-notification.error {
+    background-color: rgba(231, 76, 60, 0.1);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    color: #e74c3c;
+}
+
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,13 @@
+# Frontend node modules
+frontend/node_modules/
+
+# Backend node modules
+backend/node_modules/
+
+backend/clientquery/
+backend/internships/
+
+# Secrets
+.env
+
+build/node_modules/

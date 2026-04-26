@@ -1,0 +1,18 @@
+.wordcount-container{
+    color: black;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .wordcount-container {
+    padding: 12px 20px;
+  }
+
+  .wordcount-number {
+    font-size: 36px;
+  }
+
+  .wordcount-plus {
+    font-size: 28px;
+  }
+}

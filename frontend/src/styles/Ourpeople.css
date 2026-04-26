@@ -1,0 +1,296 @@
+/* ============================================
+   JSM Associates Theme Variables (Dynamic)
+   ============================================ */
+.our-people {
+    /* Component-specific variables */
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-overlay: linear-gradient(to top, rgba(10, 10, 10, 0.95), transparent);
+}
+
+.our-people.light-theme {
+    --card-border: rgba(0, 0, 0, 0.1);
+    --card-overlay: linear-gradient(to top, rgba(17, 17, 17, 0.90), transparent);
+}
+
+/* ============================================
+   LAYOUT & CONTAINER
+   ============================================ */
+.our-people {
+    height: 100vh;
+    min-height: 700px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+
+    background-image: radial-gradient(circle at 50% 100%, var(--bg-secondary) 0%, var(--bg-main) 60%);
+}
+
+.our-people-container {
+    width: 100%;
+    max-width: 1400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- TYPOGRAPHY & HEADER --- */
+.header-wrapper {
+    margin-bottom: 4vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    transition: color var(--transition-speed) ease;
+}
+
+.our-people-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -1px;
+    color: var(--text-heading);
+    transition: color var(--transition-speed) ease;
+}
+
+.theme-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--accent-primary);
+    margin-top: 1rem;
+    transition: background var(--transition-speed) ease;
+    border-radius: 5px;
+}
+
+/* --- EMPTY / LOADING STATES --- */
+.loading-text {
+    color: var(--accent-primary);
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+}
+
+/* --- THE MONOLITH CARDS (Horizontal Layout) --- */
+.partners-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    margin-bottom: 4vh;
+}
+
+.partner-card {
+    width: 320px;
+    height: 55vh;
+    min-height: 400px;
+    position: relative;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+/* --- IMAGE FRAME --- */
+.image-frame {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+    transition: all 0.4s ease;
+    background: var(--bg-main);
+}
+
+.partner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Gradient Overlay */
+.overlay-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: var(--card-overlay);
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* =========================================
+   HOVER STATES
+   ========================================= */
+.partner-card:hover .partner-image {
+    filter: grayscale(0%) contrast(1);
+    transform: scale(1.05);
+}
+
+.partner-card:hover .image-frame {
+    border-color: var(--accent-primary);
+    box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+/* --- INFO OVERLAY --- */
+.partner-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    text-align: left;
+    z-index: 2;
+}
+
+.partner-designation {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    transition: color var(--transition-speed) ease;
+}
+
+.partner-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+    /* Must remain white to contrast with the dark image overlay */
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.hover-line {
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    margin-top: 12px;
+    transition: width 0.4s ease, background 0.4s ease;
+}
+
+.partner-card:hover .hover-line {
+    width: 50px;
+}
+
+.partner-card:hover .partner-name {
+    transform: translateY(-5px);
+}
+
+/* --- BUTTON --- */
+.our-people-link {
+    margin-top: 1vh;
+    width: 100%;
+    padding: 0 1.5rem;
+}
+
+.view-team-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0.8rem 2.5rem;
+    border: 1px solid var(--accent-primary);
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    border-radius: 4px;
+}
+
+.view-team-btn:hover {
+    background: var(--accent-primary);
+    color: var(--bg-main);
+    /* Swaps to background color (Black or White) */
+    gap: 15px;
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+/* =========================================
+   PERFECT MOBILE HORIZONTAL SWIPE
+   ========================================= */
+@media (max-width: 1060px) {
+    .partners-grid {
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px 5%;
+        gap: 1.5rem;
+    }
+
+    .partners-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .partners-grid {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .partner-card {
+        scroll-snap-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .our-people {
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 0 4rem;
+        justify-content: flex-start;
+    }
+
+    .partner-card {
+        width: 300px;
+        height: 420px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partner-card {
+        width: 280px;
+        height: 400px;
+    }
+
+    .view-team-btn {
+        width: 100%;
+    }
+}

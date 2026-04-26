@@ -1,0 +1,232 @@
+/* =========================================
+   TESTIMONIALS (Powered by JSM Global Engine)
+   ========================================= */
+.testimonials-wrapper {
+    padding: 80px 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+/* =========================================
+   2. HEADER SECTION
+   ========================================= */
+.testimonials-header {
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.review-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--accent-glow);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-primary);
+    width: fit-content;
+    background: var(--accent-muted);
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-glow);
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.testimonials-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-heading);
+}
+
+/* =========================================
+   3. INFINITE MARQUEE LOGIC
+   ========================================= */
+.marquee-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Gradient fades on the left and right edges so cards dissolve smoothly */
+.marquee-container::before,
+.marquee-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-main), transparent);
+}
+
+.marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-main), transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+/* Pauses the animation when the user hovers over it to read */
+.marquee-track:hover {
+    animation-play-state: paused !important;
+}
+
+/* Track speeds. Track 2 is slightly slower to create an offset "brick" look */
+.track-1 {
+    animation: scrollLeft 40s linear infinite;
+}
+
+.track-2 {
+    animation: scrollLeft 48s linear infinite;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 10px));
+    }
+}
+
+/* =========================================
+   4. REVIEW CARD STYLING
+   ========================================= */
+.review-card {
+    width: 380px;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-shrink: 0;
+    white-space: normal;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.review-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+.review-stars {
+    display: flex;
+    gap: 4px;
+}
+
+.review-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+    color: var(--text-muted);
+    font-style: italic;
+    font-family: 'Garamond', 'Times New Roman', serif;
+}
+
+.review-author-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.author-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: var(--accent-muted);
+    color: var(--accent-primary);
+}
+
+.author-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.author-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-heading);
+}
+
+.author-role {
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-primary);
+}
+
+/* =========================================
+   5. RESPONSIVE ADJUSTMENTS
+   ========================================= */
+@media (max-width: 768px) {
+    .review-card {
+        width: 300px;
+        padding: 25px;
+    }
+
+    .marquee-container::before,
+    .marquee-container::after {
+        width: 60px;
+    }
+}

@@ -1,0 +1,562 @@
+/* =========================================
+   CAREERS PORTAL (Powered by JSM Engine)
+   ========================================= */
+.career-royale-container {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 120px 20px 60px 20px;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+
+    /* Subtle radial glow based on the global accent */
+    background-image:
+        radial-gradient(circle at 10% 20%, var(--accent-muted) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, var(--accent-muted) 0%, transparent 40%);
+}
+
+.career-content-wrapper {
+    max-width: 900px;
+    width: 100%;
+    z-index: 2;
+    position: relative;
+}
+
+/* =========================================
+     Header Styling
+     ========================================= */
+.career-header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.royale-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: var(--text-heading);
+}
+
+.title-divider {
+    height: 3px;
+    width: 80px;
+    background: var(--accent-primary);
+    margin: 0 auto 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.royale-subtitle {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* =========================================
+     Glassmorphic Form
+     ========================================= */
+.royale-form {
+    padding: 50px;
+    border-radius: 12px;
+    background: var(--bg-card);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-speed) ease;
+}
+
+.section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color: var(--text-heading);
+    margin-bottom: 30px;
+    border-left: 4px solid var(--accent-primary);
+    padding-left: 15px;
+}
+
+/* =========================================
+     Standard Input & Select Styles
+     ========================================= */
+.grid-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 15px 10px;
+    background-color: var(--bg-main);
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1rem;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    border-radius: 4px 4px 0 0;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    border: 1px solid var(--border-color);
+    padding: 15px;
+}
+
+/* =========================================
+     NATIVE SELECT FIXES
+     ========================================= */
+.input-group select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 40px;
+}
+
+/* Custom CSS Chevron */
+.custom-select-icon {
+    position: absolute;
+    right: 15px;
+    top: 22px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--accent-primary);
+    border-bottom: 2px solid var(--accent-primary);
+    transform: rotate(45deg);
+    pointer-events: none;
+    transition: transform 0.3s;
+}
+
+.input-group select:focus~.custom-select-icon {
+    transform: rotate(-135deg);
+    top: 25px;
+}
+
+.input-group select option {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    padding: 15px;
+}
+
+/* Label Styling */
+.input-group label {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    font-size: 1rem;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Focus & Active States */
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    outline: none;
+    border-bottom-color: var(--accent-primary);
+    background-color: var(--accent-muted);
+}
+
+.input-group textarea:focus {
+    border-color: var(--accent-primary);
+}
+
+/* Floating Label Trigger Logic */
+.input-group input:focus~label,
+.input-group input:not(:placeholder-shown)~label,
+.input-group textarea:focus~label,
+.input-group textarea:not(:placeholder-shown)~label,
+.input-group select:focus~label,
+.input-group label.active {
+    top: -20px;
+    left: 0;
+    font-size: 0.85rem;
+    color: var(--accent-primary);
+    font-weight: 700;
+}
+
+/* =========================================
+     File Upload Styling
+     ========================================= */
+.file-upload-group {
+    margin-bottom: 25px;
+}
+
+.file-label-text {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.error-asterisk {
+    color: #ff4d4d;
+}
+
+.custom-file-input {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.custom-file-input input[type="file"] {
+    display: none;
+}
+
+.file-btn {
+    background-color: transparent;
+    border: 1px solid var(--accent-primary);
+    color: var(--accent-primary);
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.file-btn:hover {
+    background-color: var(--accent-primary);
+    color: var(--bg-main);
+    box-shadow: 0 5px 15px var(--accent-glow);
+}
+
+.file-name-display {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-style: italic;
+    word-break: break-all;
+    color: var(--text-main);
+}
+
+.conditional-block {
+    border: 1px dashed var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    background-color: var(--bg-main);
+}
+
+.warning-text {
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* =========================================
+     Buttons & Actions
+     ========================================= */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.btn-royale-primary {
+    flex: 2;
+    background: var(--accent-primary);
+    color: var(--bg-main) !important;
+    border: none;
+    padding: 16px 30px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-royale-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px var(--accent-glow);
+}
+
+.btn-royale-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+.btn-royale-secondary {
+    flex: 1;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 16px 30px;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-royale-secondary:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+/* =========================================
+   Application Tracker Styling
+   ========================================= */
+.track-trigger-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s;
+    margin-top: 20px;
+}
+
+.track-trigger-btn:hover {
+    color: var(--accent-primary);
+}
+
+.tracker-box {
+    margin-top: 30px;
+    padding: 30px;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.tracker-box h3 {
+    color: var(--text-heading);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.tracker-input-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tracker-input-row input {
+    padding: 12px;
+    width: 250px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-main);
+    text-transform: uppercase;
+    outline: none;
+}
+
+.tracker-input-row input:focus {
+    border-color: var(--accent-primary);
+}
+
+.tracker-input-row button {
+    padding: 12px 25px;
+    background: var(--accent-primary);
+    color: var(--bg-main);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+}
+
+.tracker-error {
+    color: #ff4d4d;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.tracker-result {
+    margin-top: 25px;
+    padding: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--accent-primary);
+    border-radius: 6px;
+}
+
+.tracker-result p {
+    color: var(--text-main);
+    margin: 5px 0;
+}
+
+.tracker-status {
+    color: var(--accent-primary) !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 15px !important;
+}
+
+
+/* =========================================
+     Status & Errors
+     ========================================= */
+.status-message {
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.status-message.success {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.status-message.error {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.input-error {
+    border-bottom: 2px solid #ff4d4d !important;
+    box-shadow: 0 5px 15px rgba(255, 77, 77, 0.1);
+}
+
+/* =========================================
+     Animations
+     ========================================= */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s forwards;
+    opacity: 0;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s forwards;
+    opacity: 0;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+/* =========================================
+   🚨 MOBILE OPTIMIZATIONS 
+   ========================================= */
+@media (max-width: 768px) {
+    .career-royale-container {
+        padding: 100px 15px 40px 15px;
+    }
+
+    .royale-form {
+        padding: 40px 20px;
+    }
+
+    .grid-row {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .custom-file-input {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .file-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .btn-royale-primary,
+    .btn-royale-secondary {
+        width: 100%;
+        padding: 16px 20px;
+    }
+
+    .tracker-input-row {
+        flex-direction: column;
+    }
+
+    .tracker-input-row input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .royale-form {
+        padding: 30px 15px;
+        border-radius: 8px;
+    }
+}
