@@ -1,13 +1,26 @@
-# Frontend node modules
+# Dependencies
+node_modules/
 frontend/node_modules/
-
-# Backend node modules
 backend/node_modules/
+build/node_modules/
 
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backend data
 backend/clientquery/
 backend/internships/
 
-# Secrets
-.env
-
-build/node_modules/
+# IDE
+.vscode/
+.idea/
